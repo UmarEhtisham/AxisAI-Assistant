@@ -1,0 +1,4 @@
+-e .
+setuptools
+streamlit
+streamlit_option_menu
