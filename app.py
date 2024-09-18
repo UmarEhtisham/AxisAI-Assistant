@@ -26,14 +26,23 @@ credentials_page=st.Page(
     
 )
 
-# pg=st.navigation(pages=[home_page,credentials_page])
+axis_ai_page=st.Page(
+    title="Axis AI",
+    page="views/axis_ai.py",
+    icon=":material/robot:",
+    default=False,
+)
+
+# pg=st.navigation(pages=[home_page,credentials_page,axis_ai_page])
 # Navigation with sections
 pg=st.navigation(
     {
         "Home": [home_page],
-        "Credentials": [credentials_page]
+        "Sign In": [credentials_page],
+        "Axis AI Assitant":[axis_ai_page]
     }
 )
 st.logo("static/assets/images/logo.png")
+
 pg.run()
 
