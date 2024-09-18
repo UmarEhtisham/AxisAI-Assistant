@@ -86,7 +86,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
     border: 2px solid transparent; /* Default transparent border */
     width: 100%; /* Allow the grid to control the width */
-    height: 300px; /* Fixed height */
+    height: 200px; /* Fixed height */
     overflow: hidden; /* Prevent content from spilling */
     box-sizing: border-box;
     display: block; /* Prevent flexbox for spacing */
@@ -166,4 +166,76 @@ h1 {
     background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
     border: none;
     margin: 20px 0;
+}
+
+/* Credentials  */
+
+
+.api-container {
+    background-color: #fbfbfb; /* Softer light blue background */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Professional, clean font */
+    color: #333;
+}
+
+.api-container p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #4a4a4a; /* Muted dark gray for text */
+}
+
+.api-container ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.api-container ul li {
+    margin-bottom: 10px;
+}
+
+.api-container ul li a {
+    text-decoration: none;
+    color: #0073e6; /* Professional blue link color */
+    font-weight: 600;
+    transition: color 0.3s ease; /* Smooth hover transition */
+}
+
+.api-container ul li a:hover {
+    color: #005bb5; /* Darker blue on hover */
+}
+
+.api-container ul li a:active {
+    color: #00408d; /* Even darker blue when clicked */
+}
+
+
+
+
+/* Button - Default state */
+.st-emotion-cache-15hul6a.ef3psqc12 {
+    color: green;
+    border-color: yellow;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+/* Button - Hover effect */
+.st-emotion-cache-15hul6a.ef3psqc12:hover:enabled {
+    color: blueviolet;
+    transform: scale(1.05); /* "scale" instead of "scale" property to make it work properly */
+    border-color: yellow;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+/* Disabled button - No hover effect */
+.st-emotion-cache-15hul6a.ef3psqc12:disabled {
+    color: grey;
+    border-color: grey;
+    cursor: not-allowed; /* Visual cue for disabled state */
+    pointer-events: none; /* Disable hover */
 }
