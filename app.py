@@ -34,6 +34,6 @@ pg=st.navigation(
         "Credentials": [credentials_page]
     }
 )
-st.logo("assets/images/logo.png")
+st.logo("static/assets/images/logo.png")
 pg.run()
 
