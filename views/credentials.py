@@ -32,7 +32,7 @@ st.markdown("""
 
 # Main function to get credentials
 
-@st.experimental_dialog("Sign In to get touch in AxisAI")
+@st.dialog("Sign In to get touch in AxisAI")
 def get_credentials():
     st.session_state['username'] = st.text_input("Username")
     st.session_state['llm_choice'] = st.selectbox("LLM", ["OpenAI", "Google Gemini", "HuggingFace", "ChatGroq", "Antropic"])
@@ -48,7 +48,7 @@ def get_credentials():
 
     if submit:
         if save_credentials(st.session_state['llm_choice'], st.session_state['api_key']):
-            st.success(f"Nice to have you {st.session_state['username']}!")
+            st.success(f"Nice to have you {st.session_state['username'].title()}!")
         else:
             st.error("Error saving credentials.")
 
