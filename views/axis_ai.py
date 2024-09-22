@@ -1,11 +1,19 @@
+import time
 import streamlit as st
+from components.input_components import get_chatbot_choice
+from src.chat_with_pdf import chat_with_pdf
 
-st.header("Axis AI",anchor=False)
-st.write("Please provide your credentials. You can use any of the following:")
-
-with st.expander("Upload file"):
-    st.selectbox("Select your file type",["json","yaml","yml"])
-    st.file_uploader("Upload your credentials",type="json")
-    submit=st.button("Submit")
-    if submit:
-        pass
+CHATBOTS={}
+def chatbots():
+    st.header("Axis AI",anchor=False)
+    cols=st.columns(4,gap='small',vertical_alignment="top")
+    st.session_state.chatbot_choice=get_chatbot_choice()
+    st.info(st.session_state.chatbot_choice)
+    
+    
+if st.session_state.signed_in:
+    chatbots()
+else:
+    st.warning("Please sign in to continue... Redirecting to credentials page...")
+    time.sleep(1.5)
+    st.switch_page("views/credentials.py")

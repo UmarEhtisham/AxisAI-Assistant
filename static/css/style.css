@@ -239,3 +239,26 @@ h1 {
     cursor: not-allowed; /* Visual cue for disabled state */
     pointer-events: none; /* Disable hover */
 }
+
+
+
+
+/* axis.ai */
+
+.chat-option {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.chat-option svg {
+    margin-right: 15px;
+}
+
+.chat-title {
+    font-size: 18px;
+}

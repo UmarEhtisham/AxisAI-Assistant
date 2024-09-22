@@ -1,17 +1,8 @@
 import streamlit as st
-from components.input_components import model_key
+from components.input_components import model_key,get_credentials
 from utils.save_credentials import save_credentials
 st.header("Axis AI Credentials", anchor=False)
 
-# Initialize session states for credentials
-if 'llm_choice' not in st.session_state:
-    st.session_state['llm_choice'] = None
-if 'username' not in st.session_state:
-    st.session_state['username'] = 'AxisAI'
-if 'api_key' not in st.session_state:
-    st.session_state['api_key'] = None
-if 'signed_in' not in st.session_state:
-    st.session_state['signed_in'] = False
 
 # HTML content with bulleted list and clickable links
 st.markdown("""
@@ -32,31 +23,13 @@ st.markdown("""
 
 # Main function to get credentials
 
-@st.dialog("Sign In to get touch in AxisAI")
-def get_credentials():
-    st.session_state['username'] = st.text_input("Username")
-    st.session_state['llm_choice'] = st.selectbox("LLM", ["OpenAI", "Google Gemini", "HuggingFace", "ChatGroq", "Antropic"])
-    _, st.session_state['api_key'] = model_key(st.session_state['llm_choice'])
 
-    # Check if all fields are filled to enable the submit button
-    if st.session_state['username'] and st.session_state['llm_choice'] and st.session_state['api_key']:
-        st.session_state['signed_in'] = True
-    else:
-        st.session_state['signed_in'] = False
-
-    submit = st.button("Submit", disabled=not st.session_state['signed_in'])
-
-    if submit:
-        if save_credentials(st.session_state['llm_choice'], st.session_state['api_key']):
-            st.success(f"Nice to have you {st.session_state['username'].title()}!")
-        else:
-            st.error("Error saving credentials.")
 
 # Main app layout
 cols = st.columns(3)
 with cols[1]:
-    sign_in = st.button("Sign In", key="submit")
+    sign_in = st.button("Sign In", key="sign_in")
     if sign_in:
-        # st.switch_page("views/home.py")
         
         get_credentials()
+        

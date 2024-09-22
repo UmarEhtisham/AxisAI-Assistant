@@ -1,10 +1,25 @@
 import streamlit as st
+
+
+# Initialize session states for credentials
+if 'llm_choice' not in st.session_state:
+    st.session_state['llm_choice'] = None
+if 'username' not in st.session_state:
+    st.session_state['username'] = 'AxisAI'
+if 'api_key' not in st.session_state:
+    st.session_state['api_key'] = None
+if 'signed_in' not in st.session_state:
+    st.session_state['signed_in'] = False
+
+    
+
 st.set_page_config(
     page_title="AxisAI",
-    page_icon=":material/robot:",
+    page_icon=":robot:",
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
 def load_css():
     with open("static/css/style.css") as f:
         st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
@@ -32,17 +47,16 @@ axis_ai_page=st.Page(
     icon=":material/robot:",
     default=False,
 )
-
 # pg=st.navigation(pages=[home_page,credentials_page,axis_ai_page])
-# Navigation with sections
-pg=st.navigation(
+# Navigation with 
+pg = st.navigation(
     {
         "Home": [home_page],
         "Sign In": [credentials_page],
-        "Axis AI Assitant":[axis_ai_page]
+        "Axis AI Assistant": [axis_ai_page],
     }
 )
 st.logo("static/assets/images/logo.png")
-
-pg.run()
+if __name__ == "__main__":
+    pg.run()
 
