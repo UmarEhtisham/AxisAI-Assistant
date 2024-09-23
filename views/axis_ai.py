@@ -1,7 +1,6 @@
 import time
 import streamlit as st
 from components.input_components import get_chatbot_choice
-from src.chat_with_pdf import chat_with_pdf
 
 CHATBOTS={}
 def chatbots():
