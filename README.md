@@ -1,1 +1,1 @@
-# AxisAI Assiance
+# AxisAI Assistant
